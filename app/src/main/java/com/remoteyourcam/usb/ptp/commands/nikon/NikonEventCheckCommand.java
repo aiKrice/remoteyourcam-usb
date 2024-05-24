@@ -61,9 +61,10 @@ public class NikonEventCheckCommand extends NikonCommand {
             }
 
             switch (eventCode) {
-            case Event.ObjectAdded:
-                camera.onEventObjectAdded(eventParam);
-                break;
+              case Event.ObjectAdded:
+                case -16127: //for getting image from camera when camera shutter button click not in live view
+                    camera.onEventObjectAdded(eventParam);
+                    break;
             case Event.DevicePropChanged:
                 camera.onEventDevicePropChanged(eventParam);
                 break;
